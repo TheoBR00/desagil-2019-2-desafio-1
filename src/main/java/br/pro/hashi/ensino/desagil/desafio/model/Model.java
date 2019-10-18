@@ -17,7 +17,16 @@ public class Model {
 
         target = new Element(0, 0);
 
-        chooseRandomTarget();
+        if (humanPlayer.getRow() == target.getRow() && humanPlayer.getCol() == target.getCol()){
+            humanPlayer.incrementPoints();
+            chooseRandomTarget();
+        }
+        if (cpuPlayer.getRow() == target.getRow() && cpuPlayer.getCol() == target.getCol()){
+            cpuPlayer.incrementPoints();
+            chooseRandomTarget();
+        }
+
+
     }
 
     public Board getBoard() {
@@ -48,5 +57,9 @@ public class Model {
 		int randomIndex = new Random().nextInt(positions.length);
 		target.setRow(positions[randomIndex][0]);
 		target.setCol(positions[randomIndex][1]);
+
 	}
-}
+
+
+    }
+

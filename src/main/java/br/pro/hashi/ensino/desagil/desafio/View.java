@@ -2,12 +2,17 @@ package br.pro.hashi.ensino.desagil.desafio;
 
 import br.pro.hashi.ensino.desagil.desafio.model.Board;
 import br.pro.hashi.ensino.desagil.desafio.model.Element;
+import br.pro.hashi.ensino.desagil.desafio.model.HumanPlayer;
 import br.pro.hashi.ensino.desagil.desafio.model.Model;
 
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 import java.util.Map;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
 
 // Estender a classe JPanel e reescrever o método
 // paintComponent é um jeito tradicional de criar
@@ -75,6 +80,12 @@ public class View extends JPanel {
         // Linha necessária para evitar atrasos
         // de renderização em sistemas Linux.
         getToolkit().sync();
+    }
+    public void drawString(Graphics g) {
+        Dimension D = this.getPreferredSize();
+        int fontSize = 12;
+        g.drawString(String.format("Jogador: %", model.getHumanPlayer()), 10, 20);
+        g.drawString(String.format("Computador: %", model.getCpuPlayer()), 10, 20);
     }
 
 
